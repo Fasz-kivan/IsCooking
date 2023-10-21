@@ -13,7 +13,7 @@ namespace webapi.Dtos
             int minutesToMake,
             IReadOnlyCollection<Ingredient> ingredients,
             IReadOnlyCollection<Step> steps,
-            string imageRoute)
+            string? imageRoute)
         {
             Id = id;
             Name = name ?? throw new ArgumentNullException(nameof(name));

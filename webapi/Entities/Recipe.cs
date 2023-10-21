@@ -18,6 +18,6 @@ namespace webapi.Entities
 
         public required IReadOnlyCollection<Step> Steps { get; set; }
 
-        public required string ImageRoute { get; set; }
+        public string? ImageRoute { get; set; }
     }
 }
