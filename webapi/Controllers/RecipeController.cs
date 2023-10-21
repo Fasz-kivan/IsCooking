@@ -20,21 +20,21 @@ namespace webapi.Controllers
         }
 
         [HttpGet]
-        [Route("")]
-        public IReadOnlyCollection<RecipeDto> GetRecipeById([FromBody] int id)
+        [Route("id")]
+        public IReadOnlyCollection<RecipeDto>? GetRecipeById([FromBody] int id)
         {
             return null;
         }
 
         [HttpGet]
-        [Route("")]
+        [Route("difficulty")]
         public IReadOnlyCollection<RecipeDto>? GetRecipesByDifficulty([FromBody] Difficulty difficulty)
         {
             return null;
         }
 
         [HttpGet]
-        [Route("")]
+        [Route("ingredients")]
         public IReadOnlyCollection<RecipeDto>? GetRecipesByIngredients([FromBody] IReadOnlyCollection<Ingredient> availableIngredients)
         {
             return null;
