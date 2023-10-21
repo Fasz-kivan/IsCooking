@@ -1,5 +1,5 @@
 ﻿using webapi.Entities;
-using webapi.NewFolder;
+using webapi.Stuff;
 
 namespace webapi.Dtos
 {
@@ -22,7 +22,7 @@ namespace webapi.Dtos
             MinutesToMake = minutesToMake;
             Ingredients = ingredients ?? throw new ArgumentNullException(nameof(ingredients));
             Steps = steps ?? throw new ArgumentNullException(nameof(steps));
-            ImageRoute = imageRoute ?? throw new ArgumentNullException(nameof(imageRoute));
+            ImageRoute = imageRoute;
         }
 
         public int Id { get; }
@@ -39,6 +39,6 @@ namespace webapi.Dtos
 
         public IReadOnlyCollection<Step> Steps { get; }
 
-        public string ImageRoute { get; }
+        public string? ImageRoute { get; }
     }
 }

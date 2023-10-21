@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using webapi.Dtos;
 using webapi.Entities;
-using webapi.NewFolder;
+using webapi.Stuff;
 
 namespace webapi.Controllers
 {

@@ -10,11 +10,6 @@ namespace webapi.Data
 
         }
 
-        public DataContext(DbSet<Recipe> recipe)
-        {
-            Recipe = recipe ?? throw new ArgumentNullException(nameof(recipe));
-        }
-
         public DbSet<Recipe> Recipe { get; set; }
 
     }

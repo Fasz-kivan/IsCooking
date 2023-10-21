@@ -1,4 +1,4 @@
-﻿namespace webapi.NewFolder
+﻿namespace webapi.Stuff
 {
     public enum Difficulty
     {
