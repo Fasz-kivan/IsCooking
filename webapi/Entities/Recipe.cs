@@ -10,8 +10,6 @@ namespace webapi.Entities
             string? description,
             Difficulty difficulty,
             int minutesToMake,
-            IReadOnlyCollection<Ingredient> ingredients,
-            IReadOnlyCollection<Step> steps,
             string imageRoute)
         {
             Id = id;
@@ -19,25 +17,23 @@ namespace webapi.Entities
             Description = description;
             Difficulty = difficulty;
             MinutesToMake = minutesToMake;
-            Ingredients = ingredients ?? throw new ArgumentNullException(nameof(ingredients));
-            Steps = steps ?? throw new ArgumentNullException(nameof(steps));
             ImageRoute = imageRoute ?? throw new ArgumentNullException(nameof(imageRoute));
         }
 
-        public int Id { get; }
+        public int Id { get; set; }
 
-        public string Name { get; }
+        public string Name { get; set; }
 
-        public string? Description { get; }
+        public string? Description { get; set; }
 
-        public Difficulty Difficulty { get; }
+        public Difficulty Difficulty { get; set; }
 
-        public int MinutesToMake { get; }
+        public int MinutesToMake { get; set; }
 
-        public IReadOnlyCollection<Ingredient> Ingredients { get; }
+        public IReadOnlyCollection<Ingredient> Ingredients { get; set; }
 
-        public IReadOnlyCollection<Step> Steps { get; }
+        public IReadOnlyCollection<Step> Steps { get; set; }
 
-        public string ImageRoute { get; }
+        public string ImageRoute { get; set; }
     }
 }

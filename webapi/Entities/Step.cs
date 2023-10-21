@@ -10,12 +10,12 @@
             Descripton = descripton ?? throw new ArgumentNullException(nameof(descripton));
         }
 
-        public int Id { get; }
+        public int Id { get; set; }
 
-        public int RecipeId { get; }
+        public int RecipeId { get; set; }
 
-        public int Number { get; }
+        public int Number { get; set; }
 
-        public string Descripton { get; }
+        public string Descripton { get; set; }
     }
 }
