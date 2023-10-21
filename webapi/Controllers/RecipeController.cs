@@ -7,11 +7,6 @@ namespace webapi.Controllers
 {
     public class RecipeController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         [HttpGet]
         [Route("")]
         public IReadOnlyCollection<RecipeDto>? GetAllRecipes()
