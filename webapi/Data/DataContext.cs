@@ -10,10 +10,12 @@ namespace webapi.Data
 
         }
 
-        public DbSet<Ingredient> Ingredients { get; set; }
+        public DataContext(DbSet<Recipe> recipe)
+        {
+            Recipe = recipe ?? throw new ArgumentNullException(nameof(recipe));
+        }
 
-        public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<Recipe> Recipe { get; set; }
 
-        public DbSet<Step> Steps { get; set; }
     }
 }

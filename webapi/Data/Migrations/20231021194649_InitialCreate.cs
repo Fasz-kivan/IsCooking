@@ -28,7 +28,7 @@ namespace webapi.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Ingredients",
+                name: "Ingredient",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -40,16 +40,16 @@ namespace webapi.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ingredients", x => x.Id);
+                    table.PrimaryKey("PK_Ingredient", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Ingredients_Recipes_RecipeId",
+                        name: "FK_Ingredient_Recipes_RecipeId",
                         column: x => x.RecipeId,
                         principalTable: "Recipes",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
-                name: "Steps",
+                name: "Step",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -60,9 +60,9 @@ namespace webapi.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Steps", x => x.Id);
+                    table.PrimaryKey("PK_Step", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Steps_Recipes_RecipeId",
+                        name: "FK_Step_Recipes_RecipeId",
                         column: x => x.RecipeId,
                         principalTable: "Recipes",
                         principalColumn: "Id",
@@ -70,13 +70,13 @@ namespace webapi.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ingredients_RecipeId",
-                table: "Ingredients",
+                name: "IX_Ingredient_RecipeId",
+                table: "Ingredient",
                 column: "RecipeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Steps_RecipeId",
-                table: "Steps",
+                name: "IX_Step_RecipeId",
+                table: "Step",
                 column: "RecipeId");
         }
 
@@ -84,10 +84,10 @@ namespace webapi.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Ingredients");
+                name: "Ingredient");
 
             migrationBuilder.DropTable(
-                name: "Steps");
+                name: "Step");
 
             migrationBuilder.DropTable(
                 name: "Recipes");

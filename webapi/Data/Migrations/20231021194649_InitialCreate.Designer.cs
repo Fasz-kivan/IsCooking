@@ -11,7 +11,7 @@ using webapi.Data;
 namespace webapi.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231021191202_InitialCreate")]
+    [Migration("20231021194649_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -44,7 +44,7 @@ namespace webapi.Data.Migrations
 
                     b.HasIndex("RecipeId");
 
-                    b.ToTable("Ingredients");
+                    b.ToTable("Ingredient");
                 });
 
             modelBuilder.Entity("webapi.Entities.Recipe", b =>
@@ -95,7 +95,7 @@ namespace webapi.Data.Migrations
 
                     b.HasIndex("RecipeId");
 
-                    b.ToTable("Steps");
+                    b.ToTable("Step");
                 });
 
             modelBuilder.Entity("webapi.Entities.Ingredient", b =>
