@@ -8,12 +8,18 @@ namespace webapi.Controllers
 {
     public class RecipeController : Controller
     {
+        private readonly RecipeService _recipeService;
+
+        public RecipeController(RecipeService recipeService)
+        {
+            _recipeService = recipeService ?? throw new ArgumentNullException(nameof(recipeService));
+        }
+
         [HttpGet]
         [Route("")]
         public IReadOnlyCollection<RecipeDto>? GetAllRecipes()
         {
-            var recipeService = new RecipeService();
-            return recipeService.GetAllRecipes();
+            return _recipeService.GetAllRecipes();
         }
 
         [HttpGet]
