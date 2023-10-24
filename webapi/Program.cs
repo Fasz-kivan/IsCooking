@@ -5,7 +5,7 @@ using webapi.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton(typeof(RecipeProvider));
+builder.Services.AddSingleton(typeof(RecipeService));
 
 
 builder.Services.AddControllers();
