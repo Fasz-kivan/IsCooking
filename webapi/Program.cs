@@ -1,11 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using webapi;
 using webapi.Data;
-using webapi.Services;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton(typeof(RecipeService));
+ServiceRegistrations registrations = new();
+registrations.RegisterServices(builder);
 
 
 builder.Services.AddControllers();
@@ -18,7 +19,7 @@ builder.Services.AddDbContext<DataContext>(opt =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

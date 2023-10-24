@@ -8,18 +8,20 @@ namespace webapi.Services
     {
         private readonly List<Recipe>? recipes = new(); // store the db cache here
 
-        public RecipeService(string connectionString = "Data source = isCooking.db") // todo inherit project db path
+        public RecipeService() // todo inherit project db path
         {
+            string connectionString = "Data source = isCooking.db"; // todo how to get this dynamically?
+
             using SqliteConnection connection = new(connectionString);
             connection.Open();
 
             const string sql = "SELECT * FROM Recipe";
 
-            var cmd = new SqliteCommand(sql, connection);
+            SqliteCommand cmd = new(sql, connection);
 
-            var reader = cmd.ExecuteReader();
+            SqliteDataReader reader = cmd.ExecuteReader();
 
-            foreach (var item in reader)
+            foreach (object? item in reader)
             {
                 Console.WriteLine(item.ToString());
             }
@@ -41,7 +43,7 @@ namespace webapi.Services
         public IReadOnlyCollection<RecipeDto>? GetAllRecipes()
         {
             if (this.recipes != null)
-            { 
+            {
                 IReadOnlyCollection<RecipeDto>? result = this.recipes.Select(x =>
                 {
                     return new RecipeDto(x.Id, x.Name, x.Description, x.Difficulty, x.MinutesToMake, x.Ingredients, x.Steps, x.ImageRoute);
