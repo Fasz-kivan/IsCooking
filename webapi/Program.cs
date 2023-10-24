@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.Add(new ServiceDescriptor(typeof(RecipeService), ServiceLifetime.Singleton)); // I hope this is how you register the class to be dependency injected at startup
+//builder.Services.Add(new ServiceDescriptor(typeof(RecipeService), ServiceLifetime.Singleton)); // I hope this is how you register the class to be dependency injected at startup
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<DataContext>(opt =>
