@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.HttpLogging;
-using Microsoft.Data.Sqlite;
+﻿using Microsoft.Data.Sqlite;
 using webapi.Dtos;
 using webapi.Entities;
 
