@@ -5,14 +5,15 @@ using webapi.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddSingleton(typeof(RecipeProvider));
 
-//builder.Services.Add(new ServiceDescriptor(typeof(RecipeService), ServiceLifetime.Singleton)); // I hope this is how you register the class to be dependency injected at startup
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<DataContext>(opt =>
 {
     opt.UseSqlite(builder.Configuration.GetConnectionString("Default"));
 });
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
