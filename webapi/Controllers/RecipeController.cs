@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using webapi.Dtos;
 using webapi.Entities;
+using webapi.Services;
 using webapi.Stuff;
 
 namespace webapi.Controllers
@@ -11,7 +12,8 @@ namespace webapi.Controllers
         [Route("")]
         public IReadOnlyCollection<RecipeDto>? GetAllRecipes()
         {
-            return null;
+            var recipeService = new RecipeService();
+            return recipeService.GetAllRecipes();
         }
 
         [HttpGet]
