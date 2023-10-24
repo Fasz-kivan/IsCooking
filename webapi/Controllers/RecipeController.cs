@@ -2,7 +2,7 @@
 using webapi.Dtos;
 using webapi.Entities;
 using webapi.Services;
-using webapi.Stuff;
+using webapi.Structure;
 
 namespace webapi.Controllers
 {

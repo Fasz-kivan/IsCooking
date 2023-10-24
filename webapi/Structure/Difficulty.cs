@@ -1,4 +1,4 @@
-﻿namespace webapi.Stuff
+﻿namespace webapi.Structure
 {
     public enum Difficulty
     {
