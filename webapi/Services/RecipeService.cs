@@ -30,7 +30,7 @@ namespace webapi.Services
             connection.Close();
         }
 
-        public void SaveRecipe(Recipe recipe)
+        public void SaveRecipe(RecipeDto recipe)
         {
             // todo save always goes to db and updates internal cache, avoid desync states
         }

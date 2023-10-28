@@ -38,7 +38,7 @@ namespace webapi.Controllers
 
         [HttpGet]
         [Route("ingredients")]
-        public IReadOnlyCollection<RecipeDto>? GetRecipesByIngredients([FromBody] IReadOnlyCollection<Ingredient> availableIngredients)
+        public IReadOnlyCollection<RecipeDto>? GetRecipesByIngredients([FromBody] IReadOnlyCollection<IngredientDto> availableIngredients)
         {
             return null;
         }
