@@ -1,4 +1,4 @@
-﻿using webapi.Stuff;
+﻿using webapi.Structure;
 
 namespace webapi.Entities
 {

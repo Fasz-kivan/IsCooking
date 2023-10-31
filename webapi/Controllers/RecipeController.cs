@@ -1,17 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using webapi.Dtos;
 using webapi.Entities;
-using webapi.Stuff;
+using webapi.Services;
+using webapi.Structure;
 
 namespace webapi.Controllers
 {
     public class RecipeController : Controller
     {
+        private readonly RecipeService _recipeService;
+
+        public RecipeController(RecipeService recipeService)
+        {
+            _recipeService = recipeService ?? throw new ArgumentNullException(nameof(recipeService));
+        }
+
         [HttpGet]
         [Route("")]
         public IReadOnlyCollection<RecipeDto>? GetAllRecipes()
         {
-            return null;
+            return _recipeService.GetAllRecipes();
         }
 
         [HttpGet]
@@ -30,7 +38,7 @@ namespace webapi.Controllers
 
         [HttpGet]
         [Route("ingredients")]
-        public IReadOnlyCollection<RecipeDto>? GetRecipesByIngredients([FromBody] IReadOnlyCollection<Ingredient> availableIngredients)
+        public IReadOnlyCollection<RecipeDto>? GetRecipesByIngredients([FromBody] IReadOnlyCollection<IngredientDto> availableIngredients)
         {
             return null;
         }
