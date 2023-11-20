@@ -12,21 +12,20 @@ namespace webapi.Services
         {
             string connectionString = "Data source = isCooking.db"; // todo how to get this dynamically?
 
-            using SqliteConnection connection = new(connectionString);
+            var connection = new SqliteConnection(connectionString);
             connection.Open();
 
-            const string sql = "SELECT * FROM Recipe";
+            var command = connection.CreateCommand();
+            command.CommandText = "SELECT * FROM Recipe";
 
-            SqliteCommand cmd = new(sql, connection);
-
-            SqliteDataReader reader = cmd.ExecuteReader();
-
-            foreach (object? item in reader)
+            using ( var reader = command.ExecuteReader() )
             {
-                Console.WriteLine(item.ToString());
+                while ( reader.Read() ) {
+                    // todo cache
+                }
+                
             }
 
-            //this.recipes = (List<Recipe>)cmd.ExecuteScalar(); // todo fill cache, how tf tho
             connection.Close();
         }
 
